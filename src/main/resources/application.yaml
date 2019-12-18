@@ -1,0 +1,21 @@
+spring:
+  profiles: local
+  jpa:
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+database:
+  master:
+    jdbcUrl: jdbc:mysql://localhost:3306/blog?useUnicode=true&connectTimeout=3000&socketTimeout=60000&sendFractionalSeconds=false&serverTimezone=UTC
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: cndjr5766!
+    connectionTimeout: 3000
+    maximumPoolSize: 20
+  slave:
+    jdbcUrl: jdbc:mysql:loadbalance://localhost:3306/blog?useUnicode=true&connectTimeout=3000&socketTimeout=60000&sendFractionalSeconds=false&serverTimezone=UTC
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: cndjr5766!
+    connectionTimeout: 3000
+    maximumPoolSize: 30
