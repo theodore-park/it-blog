@@ -2,9 +2,54 @@ plugins {
 	id 'org.springframework.boot' version '2.2.2.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id 'org.flywaydb.flyway' version '5.2.4' apply false
 }
 
 apply plugin: 'groovy'
+apply plugin: 'org.flywaydb.flyway'
+
+def flywayDatabase = new Properties()
+
+if (file("src/main/resources/database-flyway.properties").canRead()) {
+	file("src/main/resources/database-flyway.properties").withReader { flywayDatabase.load(it) }
+}
+def databaseProperty = new Properties()
+databaseProperty.put('dbUrl', getDatabaseUrl(flywayDatabase))
+databaseProperty.put('dbUser', getDatabaseUser(flywayDatabase))
+databaseProperty.put('dbPassword', getDatabasePassword(flywayDatabase))
+
+println('database-property : ' + databaseProperty)
+
+flyway {
+	url = databaseProperty.get('dbUrl')
+	user = databaseProperty.get('dbUser')
+	password = databaseProperty.get('dbPassword')
+}
+
+def getDatabasePassword(Properties flywayDatabase) {
+	if (project.hasProperty("dbPassword")) {
+		project.property('dbPassword')
+	} else {
+		flywayDatabase.getOrDefault('dbPassword', '')
+	}
+
+}
+
+def getDatabaseUser(Properties flywayDatabase) {
+	if (project.hasProperty("dbUser")) {
+		project.property('dbUser')
+	} else {
+		flywayDatabase.getOrDefault('dbUser', 'root')
+	}
+}
+
+def getDatabaseUrl(Properties flywayDatabase) {
+	if (project.hasProperty("dbUrl")) {
+		project.property('dbUrl')
+	} else {
+		flywayDatabase.getOrDefault('dbUrl', 'jdbc:mysql://localhost:3306/blog?useUnicode=true&connectTimeout=3000&socketTimeout=60000&sendFractionalSeconds=false&serverTimezone=UTC')
+	}
+}
 
 group = 'com.developers'
 version = '0.0.1-SNAPSHOT'
