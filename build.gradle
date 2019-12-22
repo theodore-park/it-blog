@@ -2,7 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '2.2.2.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
-	id 'org.flywaydb.flyway' version '5.2.4' apply false
+	id 'org.flywaydb.flyway' version '5.1.4' apply false
 }
 
 apply plugin: 'groovy'
@@ -88,6 +88,7 @@ dependencies {
 	}
 	implementation "io.swagger:swagger-annotations:1.5.21"
 	implementation "io.swagger:swagger-models:1.5.21"
+	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.12'
 }
 
 test {
