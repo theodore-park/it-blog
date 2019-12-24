@@ -5,7 +5,10 @@ plugins {
 	id 'org.flywaydb.flyway' version '5.1.4' apply false
 }
 
+apply plugin: 'java'
 apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 apply plugin: 'org.flywaydb.flyway'
 
 def flywayDatabase = new Properties()
@@ -88,7 +91,7 @@ dependencies {
 	}
 	implementation "io.swagger:swagger-annotations:1.5.21"
 	implementation "io.swagger:swagger-models:1.5.21"
-	implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.12'
+	compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.12'
 }
 
 test {
