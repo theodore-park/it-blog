@@ -1,7 +1,6 @@
 package com.developers.blog.configuration;
 
 import com.developers.domain.JpaEntityMarker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder;
 import org.springframework.context.annotation.Bean;
@@ -12,7 +11,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.annotation.Resource;
 import javax.sql.DataSource;
 
 @Configuration
@@ -20,11 +18,14 @@ import javax.sql.DataSource;
 @EnableJpaRepositories(basePackageClasses = JpaEntityMarker.class)
 public class JpaRepositoryConfiguration {
 
-	@Resource
-	private DataSource blogDataSource;
+	private final DataSource blogDataSource;
 
-	@Autowired
-	private JpaProperties jpaProperties;
+	private final JpaProperties jpaProperties;
+
+	public JpaRepositoryConfiguration(DataSource blogDataSource, JpaProperties jpaProperties) {
+		this.blogDataSource = blogDataSource;
+		this.jpaProperties = jpaProperties;
+	}
 
 	@Bean
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
