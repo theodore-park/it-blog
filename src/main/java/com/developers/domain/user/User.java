@@ -1,4 +1,4 @@
-package com.developers.domain.users;
+package com.developers.domain.user;
 
 import lombok.Getter;
 
@@ -14,4 +14,11 @@ public class User {
 
 	@Column(name = "name")
 	private String name;
+
+	private User() {
+	}
+
+	public User(String name) {
+		this.name = name;
+	}
 }
