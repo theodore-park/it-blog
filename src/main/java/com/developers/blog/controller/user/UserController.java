@@ -27,7 +27,7 @@ public class UserController {
 	}
 
 	@PutMapping("/users/{id}")
-	public UserDto update(@RequestBody UserUpdateRequest userUpdateRequest) {
-		return userUpdateService.update(userUpdateRequest);
+	public UserDto update(@PathVariable long id, @RequestBody UserUpdateRequest userUpdateRequest) {
+		return userUpdateService.update(id, userUpdateRequest);
 	}
 }
