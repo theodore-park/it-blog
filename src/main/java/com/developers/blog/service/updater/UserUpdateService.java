@@ -18,8 +18,13 @@ public class UserUpdateService {
 
 	public UserDto update(long userId, UserUpdateRequest userUpdateRequest) {
 		User user = getUser(userId);
+		update(user, userUpdateRequest);
 		validators.validate(user);
 		return userDtoAssembler.assemble(user);
+	}
+
+	private void update(User user, UserUpdateRequest userUpdateRequest) {
+		user.setName(userUpdateRequest.getName());
 	}
 
 	private User getUser(long userId) {
