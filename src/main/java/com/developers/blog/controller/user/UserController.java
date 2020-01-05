@@ -4,6 +4,7 @@ import com.developers.blog.service.UserDto;
 import com.developers.blog.service.UserService;
 import com.developers.blog.service.creator.UserCreateRequest;
 import com.developers.blog.service.creator.UserCreateService;
+import com.developers.blog.service.deleter.UserDeleteService;
 import com.developers.blog.service.updater.UserUpdateRequest;
 import com.developers.blog.service.updater.UserUpdateService;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,7 @@ public class UserController {
 	private final UserService userService;
 	private final UserCreateService userCreateService;
 	private final UserUpdateService userUpdateService;
+	private final UserDeleteService userDeleteService;
 
 	@GetMapping("users/{id}")
 	public UserDto get(@PathVariable long id) {
@@ -29,5 +31,10 @@ public class UserController {
 	@PutMapping("/users/{id}")
 	public UserDto update(@PathVariable long id, @RequestBody UserUpdateRequest userUpdateRequest) {
 		return userUpdateService.update(id, userUpdateRequest);
+	}
+
+	@DeleteMapping("/users/{id}")
+	public void delete(@PathVariable long id) {
+		userDeleteService.delete(id);
 	}
 }
