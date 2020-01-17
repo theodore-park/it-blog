@@ -1,4 +1,4 @@
-package com.developers.blog.service.creator.validator;
+package com.developers.blog.service.user.creator.validator;
 
 public class DuplicateNameException extends RuntimeException {
 	public DuplicateNameException() {

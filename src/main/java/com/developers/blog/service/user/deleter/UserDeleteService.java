@@ -1,6 +1,6 @@
-package com.developers.blog.service.deleter;
+package com.developers.blog.service.user.deleter;
 
-import com.developers.blog.service.UserNotFoundException;
+import com.developers.blog.service.user.UserNotFoundException;
 import com.developers.domain.user.User;
 import com.developers.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;

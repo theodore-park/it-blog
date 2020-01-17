@@ -1,4 +1,4 @@
-package com.developers.blog.service;
+package com.developers.blog.service.user;
 
 import com.developers.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;

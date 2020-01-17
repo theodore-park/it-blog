@@ -1,4 +1,4 @@
-package com.developers.blog.service.updater.validator;
+package com.developers.blog.service.user.updater.validator;
 
 import com.developers.domain.user.User;
 

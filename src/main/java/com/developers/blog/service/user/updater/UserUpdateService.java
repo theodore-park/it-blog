@@ -1,9 +1,9 @@
-package com.developers.blog.service.updater;
+package com.developers.blog.service.user.updater;
 
-import com.developers.blog.service.UserDto;
-import com.developers.blog.service.UserDtoAssembler;
-import com.developers.blog.service.UserNotFoundException;
-import com.developers.blog.service.updater.validator.UserUpdateValidators;
+import com.developers.blog.service.user.UserDto;
+import com.developers.blog.service.user.UserDtoAssembler;
+import com.developers.blog.service.user.UserNotFoundException;
+import com.developers.blog.service.user.updater.validator.UserUpdateValidators;
 import com.developers.domain.user.User;
 import com.developers.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;

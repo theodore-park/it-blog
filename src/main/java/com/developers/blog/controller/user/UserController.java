@@ -1,12 +1,12 @@
 package com.developers.blog.controller.user;
 
-import com.developers.blog.service.UserDto;
-import com.developers.blog.service.UserService;
-import com.developers.blog.service.creator.UserCreateRequest;
-import com.developers.blog.service.creator.UserCreateService;
-import com.developers.blog.service.deleter.UserDeleteService;
-import com.developers.blog.service.updater.UserUpdateRequest;
-import com.developers.blog.service.updater.UserUpdateService;
+import com.developers.blog.service.user.UserDto;
+import com.developers.blog.service.user.UserService;
+import com.developers.blog.service.user.creator.UserCreateRequest;
+import com.developers.blog.service.user.creator.UserCreateService;
+import com.developers.blog.service.user.deleter.UserDeleteService;
+import com.developers.blog.service.user.updater.UserUpdateRequest;
+import com.developers.blog.service.user.updater.UserUpdateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

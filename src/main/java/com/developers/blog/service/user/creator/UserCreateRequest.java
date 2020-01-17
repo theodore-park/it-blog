@@ -1,4 +1,4 @@
-package com.developers.blog.service.creator;
+package com.developers.blog.service.user.creator;
 
 import lombok.Getter;
 

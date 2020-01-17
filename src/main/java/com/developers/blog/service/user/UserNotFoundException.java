@@ -1,4 +1,4 @@
-package com.developers.blog.service;
+package com.developers.blog.service.user;
 
 public class UserNotFoundException extends RuntimeException {
 	public UserNotFoundException() {

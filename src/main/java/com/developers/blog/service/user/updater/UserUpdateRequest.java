@@ -1,4 +1,4 @@
-package com.developers.blog.service.updater;
+package com.developers.blog.service.user.updater;
 
 import lombok.Getter;
 
