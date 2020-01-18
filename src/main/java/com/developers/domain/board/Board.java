@@ -1,24 +1,27 @@
-package com.developers.domain.user;
+package com.developers.domain.board;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.time.OffsetDateTime;
 
-@Entity
 @Getter
-@Setter
-@Table(name = "users")
-public class User {
+@Entity
+@Table(name = "boards")
+public class Board {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "name")
-	private String name;
+	@Column(name = "title")
+	private String title;
+
+	@Column(name = "contents")
+	private String contents;
 
 	@CreationTimestamp
 	@Column(name = "created_at")
@@ -27,11 +30,4 @@ public class User {
 	@UpdateTimestamp
 	@Column(name = "updated_at")
 	private OffsetDateTime updatedAt;
-
-	private User() {
-	}
-
-	public User(String name) {
-		this.name = name;
-	}
 }
