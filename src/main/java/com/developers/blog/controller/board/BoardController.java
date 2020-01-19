@@ -5,6 +5,7 @@ import com.developers.blog.service.board.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,11 @@ public class BoardController {
 	@GetMapping("/boards")
 	public List<BoardDto> get(PageRequest pageRequest) {
 		return boardService.get(pageRequest);
+	}
+
+	@GetMapping("/boards/{id}")
+	public BoardDto get(@PathVariable long id) {
+		return boardService.get(id);
 	}
 
 }
