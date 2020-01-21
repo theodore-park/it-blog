@@ -23,6 +23,9 @@ public class Board {
 	@Column(name = "contents")
 	private String contents;
 
+	@Column(name = "views")
+	private long views;
+
 	@CreationTimestamp
 	@Column(name = "created_at")
 	private OffsetDateTime createdAt;

@@ -10,6 +10,7 @@ public class BoardDtoAssembler {
 			.id(board.getId())
 			.title(board.getTitle())
 			.contents(board.getContents())
+			.views(board.getViews())
 			.createdAt(board.getCreatedAt())
 			.updatedAt(board.getUpdatedAt())
 			.build();
