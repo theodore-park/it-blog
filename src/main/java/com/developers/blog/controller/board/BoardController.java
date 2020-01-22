@@ -26,5 +26,4 @@ public class BoardController {
 	public BoardDto get(@PathVariable long id) {
 		return boardService.get(id);
 	}
-
 }
