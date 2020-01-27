@@ -15,4 +15,5 @@ class UserCreatorTest extends Specification {
 		expect:
 		user.getName() == '테스트'
 	}
+
 }
